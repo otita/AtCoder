@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		821C88711C9F7ED0007ABCF3 /* ARC043B.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 821C88701C9F7ED0007ABCF3 /* ARC043B.cpp */; };
+		82A7D2D21CAC2E48003DFAC0 /* ARC042B.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 82A7D2D11CAC2E48003DFAC0 /* ARC042B.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,6 +48,8 @@
 		821C886C1C9F0718007ABCF3 /* modulo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = modulo.cpp; sourceTree = "<group>"; };
 		821C886E1C9F793B007ABCF3 /* ARC043A.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ARC043A.cpp; path = ARC043/ARC043A.cpp; sourceTree = "<group>"; };
 		821C88701C9F7ED0007ABCF3 /* ARC043B.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ARC043B.cpp; path = ARC043/ARC043B.cpp; sourceTree = "<group>"; };
+		82A7D2CF1CAC18FB003DFAC0 /* ARC042A.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ARC042A.cpp; path = ARC042/ARC042A.cpp; sourceTree = "<group>"; };
+		82A7D2D11CAC2E48003DFAC0 /* ARC042B.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ARC042B.cpp; path = ARC042/ARC042B.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				821C88541C9E4FE2007ABCF3 /* template.cpp */,
 				821C88521C9E4FE2007ABCF3 /* extension.cpp */,
 				821C886C1C9F0718007ABCF3 /* modulo.cpp */,
+				82A7D2CE1CAC18DB003DFAC0 /* ARC042 */,
 				821C886D1C9F7921007ABCF3 /* ARC043 */,
 				821C88671C9E90FB007ABCF3 /* ARC044 */,
 				821C883E1C9E4FE2007ABCF3 /* ARC045 */,
@@ -164,6 +167,15 @@
 			name = ARC043;
 			sourceTree = "<group>";
 		};
+		82A7D2CE1CAC18DB003DFAC0 /* ARC042 */ = {
+			isa = PBXGroup;
+			children = (
+				82A7D2CF1CAC18FB003DFAC0 /* ARC042A.cpp */,
+				82A7D2D11CAC2E48003DFAC0 /* ARC042B.cpp */,
+			);
+			name = ARC042;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -220,7 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				821C88711C9F7ED0007ABCF3 /* ARC043B.cpp in Sources */,
+				82A7D2D21CAC2E48003DFAC0 /* ARC042B.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +356,7 @@
 				821C883D1C9E4F91007ABCF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

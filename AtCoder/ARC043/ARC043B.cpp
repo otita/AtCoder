@@ -20,6 +20,19 @@ using u64 = uint64_t;
 
 #define MOD 1000000007
 
+// (a + b) % d
+u32 modadd(u32 a, u32 b, u32 d) {
+  if (a >= d) {
+    a %= d;
+  }
+  if (b >= d) {
+    b %= d;
+  }
+  u64 ans = u64(a) + u64(b);
+  ans %= d;
+  return u32(ans);
+}
+
 // (a * b) % d
 u32 modmult(u32 a, u32 b, u32 d) {
   if (a >= d) {
@@ -27,6 +40,9 @@ u32 modmult(u32 a, u32 b, u32 d) {
   }
   if (b >= d) {
     b %= d;
+  }
+  if (a == 0 || b == 0) {
+    return 0;
   }
   u64 res;
   if (a >= d / b) {
@@ -71,7 +87,7 @@ void input() {
   }
 }
 
-bool find(u32 i, u32 l, u32 *next) {
+bool find_next(u32 i, u32 l, u32 *next) {
   u32 p = D[i] << 1;
   if (D.back() < p) {
     return false;
@@ -93,26 +109,68 @@ bool find(u32 i, u32 l, u32 *next) {
   return true;
 }
 
+bool find_prev(u32 i, u32 r, u32 *prev) {
+  u32 p = D[i] >> 1;
+  if (D.front() > p) {
+    return false;
+  }
+  u32 l = 0;
+  while (l <= r) {
+    u32 c = (l + r) >> 1;
+    if (D[c] <= p && D[c + 1] > p) {
+      *prev = c;
+      break;
+    }
+    else if (D[c] > p) {
+      r = c - 1;
+    }
+    else {
+      l = c + 1;
+    }
+  }
+  return true;
+}
+
 int main() {
   input();
 
   sort(D.begin(), D.end());
 
-  vector<u32> next(N, 0);
+  u32 max = D.back();
+  vector<u32> A(max + 1, 0);
   u32 c = 1;
   for (u32 i = 0; i < N; i++) {
     u32 n;
-    if (find(i, c, &n)) {
-      next[i] = n;
+    if (find_next(i, c, &n)) {
+      A[D[i]] = N - n;
       c = n;
     }
     else {
-      next[i] = N;
+      break;
+    }
+  }
+  vector<u32> B(max + 1, 0);
+  c = N - 2;
+  for (i32 i = N - 1; i >= 0; i--) {
+    u32 p;
+    if (find_prev(i, c, &p)) {
+      B[D[i]] = modadd(B[D[i]], p + 1, MOD);
+      c = p;
+    }
+    else {
+      break;
     }
   }
 
-  u32 ans = 0;
+  for (u32 i = 1; i < max + 1; i++) {
+    B[i] = modadd(B[i], B[i - 1], MOD);
+  }
 
+  u32 ans = 0;
+  for (u32 i = 0; i < N; i++) {
+    ans = modadd(ans, modmult(A[D[i]], B[D[i] >> 1], MOD), MOD);
+  }
+  
   cout << ans << endl;
   
   return 0;

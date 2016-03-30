@@ -10,6 +10,19 @@ using u64 = uint64_t;
 
 #define MOD 1000000007
 
+// (a + b) % d
+u32 modadd(u32 a, u32 b, u32 d) {
+  if (a >= d) {
+    a %= d;
+  }
+  if (b >= d) {
+    b %= d;
+  }
+  u64 ans = u64(a) + u64(b);
+  ans %= d;
+  return u32(ans);
+}
+
 // (a * b) % d
 u32 modmult(u32 a, u32 b, u32 d) {
   if (a >= d) {
@@ -17,6 +30,9 @@ u32 modmult(u32 a, u32 b, u32 d) {
   }
   if (b >= d) {
     b %= d;
+  }
+  if (a == 0 || b == 0) {
+    return 0;
   }
   u64 res;
   if (a >= d / b) {
